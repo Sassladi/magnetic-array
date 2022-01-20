@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main()
+{
+  float arr[20],eqb[20],l,r,sum;
+  int i,z,n,m;
+      printf("enter n");
+      scanf("%d",&n);
+      printf("enter positions");
+      for(i=0;i<n;i++)
+      scanf("%f",&arr[i]);
+      z=0;
+      for(i=0;i<n;i++)
+      {
+          sum=arr[i];
+          while(arr[i+1]>sum)
+          {
+              sum=sum+0.01;
+              r=0;
+              for(m=i+1;m<n;m++)
+              {
+                  r=r+1/(arr[m]-sum);
+              }
+              l=0;
+              for(n=0;n<i+1;n++)
+              {
+                  l=l+1/(sum-arr[n]);
+              }
+              if(l=r)
+              {
+                  eqb[z]=sum;
+                  z++;
+                  break;
+              }
+          }
+      }
+      for(i=0;i<n-1;i++)
+      {
+          printf("%f  ",eqb[i]);
+      }
+    return 0;
+}
+
+
